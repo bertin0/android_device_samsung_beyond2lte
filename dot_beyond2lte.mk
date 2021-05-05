@@ -33,13 +33,13 @@ TARGET_SCREEN_WIDTH := 1440
 # vendor/lineage/config/common.mk
 
 ### LINEAGE
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/dot/config/common.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_beyond2lte
+PRODUCT_NAME := dot_beyond2lte
 PRODUCT_DEVICE := beyond2lte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G975F

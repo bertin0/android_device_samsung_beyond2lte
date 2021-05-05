@@ -26,6 +26,6 @@ DEVICE_PATH := device/samsung/beyond2lte
 
 DEVICE_PACKAGE_OVERLAYS += \
 	$(DEVICE_PATH)/overlay \
-	$(DEVICE_PATH)/overlay-lineage
+	$(DEVICE_PATH)/overlay-dot
 
 #include $(DEVICE_PATH)/device/*.mk
