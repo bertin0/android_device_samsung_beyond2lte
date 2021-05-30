@@ -30,6 +30,7 @@ $(call inherit-product, device/samsung/beyond2lte/device.mk)
 # vendor/lineage/config/common_full_phone.mk
 TARGET_SCREEN_HEIGHT := 3040
 TARGET_SCREEN_WIDTH := 1440
+TARGET_BOOT_ANIMATION_RES := 1440
 # vendor/lineage/config/common.mk
 
 ### LINEAGE
