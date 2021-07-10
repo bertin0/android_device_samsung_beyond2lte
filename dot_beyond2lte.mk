@@ -14,51 +14,36 @@
 # limitations under the License.
 #
 
+## Inherit from generic products, most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-# Product API level
+
+## Product API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inscreen Fingerprint HAL
+## Inscreen Fingerprint HAL
 TARGET_HAVE_FOD := true
 
-# Inherit device configuration
+## Inherit from beyond2lte device
 $(call inherit-product, device/samsung/beyond2lte/device.mk)
 
-### BOOTANIMATION
-# vendor/lineage/config/common_full_phone.mk
+## Boot Animation
+TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_SCREEN_HEIGHT := 3040
 TARGET_SCREEN_WIDTH := 1440
 TARGET_BOOT_ANIMATION_RES := 1440
-# vendor/lineage/config/common.mk
 
-### LINEAGE
+## Inherit some common Lineage stuff
 $(call inherit-product, vendor/dot/config/common.mk)
 
-# Enable updating of APEXes
+## Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-## Device identifier. This must come after all inclusions
+## Device identifier, this must come after all inclusions
 PRODUCT_NAME := dot_beyond2lte
 PRODUCT_DEVICE := beyond2lte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G975F
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_PDA_MODEL := G975F
-PRODUCT_PDA_MODEL_VERSION := XXU9FUCD
-PRODUCT_PDA_VERSION := $(PRODUCT_PDA_MODEL)$(PRODUCT_PDA_MODEL_VERSION)
+
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=beyond2ltexx \
-    PRIVATE_BUILD_DESC="beyond2ltexx-user 11 RP1A.200720.012 $(PRODUCT_PDA_VERSION) release-keys"
-
-BUILD_FINGERPRINT := samsung/beyond2ltexx/beyond2:11/RP1A.200720.012/$(PRODUCT_PDA_VERSION):user/release-keys
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.build.PDA=$(PRODUCT_PDA_VERSION)
-
-ifneq ($(LINEAGE_DEV_CERTIFICATE),)
-    PRODUCT_DEFAULT_DEV_CERTIFICATE := $(LINEAGE_DEV_CERTIFICATE)
-endif
