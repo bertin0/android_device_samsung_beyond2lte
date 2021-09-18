@@ -58,4 +58,6 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
 
+    <!-- Enables blur  -->
+    <bool name="blur_enabled_by_default">true</bool>
 </resources>
